@@ -1,0 +1,101 @@
+@media all and (min-width: 360px) {
+  html,
+  body {
+    font-size: 13.5px;
+  }
+}
+@media all and (min-width: 400px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+@media all and (min-width: 440px) {
+  html,
+  body {
+    font-size: 16.5px;
+  }
+}
+@media all and (min-width: 480px) {
+  html,
+  body {
+    font-size: 18px;
+  }
+}
+@media all and (min-width: 520px) {
+  html,
+  body {
+    font-size: 19.5px;
+  }
+}
+@media all and (min-width: 560px) {
+  html,
+  body {
+    font-size: 21px;
+  }
+}
+@media all and (min-width: 600px) {
+  html,
+  body {
+    font-size: 22.5px;
+  }
+}
+@media all and (min-width: 640px) {
+  html,
+  body {
+    font-size: 24px;
+  }
+}
+html,
+body {
+  font-size: 12px;
+}
+
+@media all and (min-width: 360px) {
+  html,
+  body {
+    font-size: 13.5px;
+  }
+}
+@media all and (min-width: 400px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+@media all and (min-width: 440px) {
+  html,
+  body {
+    font-size: 16.5px;
+  }
+}
+@media all and (min-width: 480px) {
+  html,
+  body {
+    font-size: 18px;
+  }
+}
+@media all and (min-width: 520px) {
+  html,
+  body {
+    font-size: 19.5px;
+  }
+}
+@media all and (min-width: 560px) {
+  html,
+  body {
+    font-size: 21px;
+  }
+}
+@media all and (min-width: 600px) {
+  html,
+  body {
+    font-size: 22.5px;
+  }
+}
+@media all and (min-width: 640px) {
+  html,
+  body {
+    font-size: 24px;
+  }
+}

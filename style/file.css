@@ -1,13 +1,10 @@
 /* ./your-css-folder/styles.css */
+@import "base.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.title {
-  color: #4ab576;
-  text-align: center;
-}
-
-ul li {
-  list-style: none;
+.facebook-icon {
+  background-image: url("../images/facebook.png");
 }
