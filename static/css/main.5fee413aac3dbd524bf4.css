@@ -1,0 +1,11 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.title {
+  color: #4ab576;
+  text-align: center;
+}
+
