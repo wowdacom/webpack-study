@@ -2,13 +2,37 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // 載入 html-webpack-plugin (第一步)
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+
+const generateHtmlPlugin = (title) => {
+  return new HtmlWebpackPlugin({
+    title,
+    filename: `${title}.html`,
+    template: `./src/pages/${title}.html`,
+  });
+};
+
+const populateHtmlPlugins = (pagesArray) => {
+  res = [];
+  pagesArray.forEach((page) => {
+    res.push(generateHtmlPlugin(page));
+  });
+  return res;
+};
+
+const pages = populateHtmlPlugins(["login", "main"]);
 
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "static/js/[name].[hash].js",
+    path: path.join(__dirname, "dist"),
+    filename: "static/js/[name].[contenthash].js",
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "/"),
+    },
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -28,14 +52,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [
-                  [
-                    "autoprefixer",
-                    {
-                      // Options
-                    },
-                  ],
-                ],
+                plugins: [["autoprefixer"]],
               },
             },
           },
@@ -50,7 +67,7 @@ module.exports = {
             options: {
               name: "images/[name].[ext]",
               limit: 10000,
-              publicPath: "images/",
+              esModule: false,
             },
           },
           {
@@ -67,11 +84,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "static/css/[name].[hash].css",
     }),
-    // 創建實例 (第二步)
-    new HtmlWebpackPlugin({
-      // 配置 HTML 模板路徑與生成名稱 (第三步)
-      template: "./src/index.html",
-      filename: "index.html",
+    new CopyPlugin({
+      patterns: [{ from: "images", to: "static/images" }],
     }),
+    // 創建實例 (第二步)
+    ...pages,
   ],
 };
